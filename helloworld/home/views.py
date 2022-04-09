@@ -12,4 +12,4 @@ def index(request):
 
 
 def about(request):
-    return HttpRequest("this is a priyam page")
+    return HttpResponse("this is a priyam page")
