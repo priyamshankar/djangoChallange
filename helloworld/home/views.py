@@ -13,3 +13,6 @@ def index(request):
 
 def about(request):
     return HttpResponse("this is a priyam page")
+
+def contact(request):
+    return HttpResponse("this is a contact us page")
