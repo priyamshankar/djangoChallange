@@ -21,4 +21,7 @@ def about(request):
 
 def contact(request):
     # return HttpResponse("this is a contact us page")
-    return render(request, "contact.html")
+    context={
+        "variable":"this is the contact variable made dynamically"
+    }
+    return render(request, "contact.html",context)
