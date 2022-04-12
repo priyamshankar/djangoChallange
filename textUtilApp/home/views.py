@@ -13,8 +13,10 @@ def index(request):
 
 
 def removespuncs(request):
-    fetchedtext = request.GET.get("manipulativeText")
-    checkStatus = request.GET.get("puncCheckbox", "off")
+    fetchedtext = request.POST.get("manipulativeText")
+    checkStatus = request.POST.get("puncCheckbox", "off")
+    checkCapital = request.POST.get("capitalise", "off")
+
     puncs = """!"#$%&'()*+, -./:;<=>?@[\]^_`{|}~"""
     if checkStatus == "on":
         withoutpunc = ""
@@ -24,11 +26,8 @@ def removespuncs(request):
 
         params = {
             'textBox': withoutpunc, "check": "this is a comment", }
-    else:
-        withoutpunc = fetchedtext
 
-    checkCapital = request.GET.get("capitalise", "off")
-    if(checkCapital == "on"):
+    elif(checkCapital == "on"):
         withoutcap = ""
         for char in fetchedtext:
             withoutcap = withoutcap+char.upper()
@@ -37,5 +36,8 @@ def removespuncs(request):
         }
     else:
         withoutcap = fetchedtext
+        params = {
+            "textCapital": fetchedtext
+        }
 
     return render(request, "removespuncs.html", params)
