@@ -21,10 +21,21 @@ def removespuncs(request):
         for char in fetchedtext:
             if char not in puncs:
                 withoutpunc = withoutpunc+char
+
+        params = {
+            'textBox': withoutpunc, "check": "this is a comment", }
     else:
         withoutpunc = fetchedtext
-    params = {
-        'textBox': withoutpunc, "check": "this is a comment"
-    }
+
+    checkCapital = request.GET.get("capitalise", "off")
+    if(checkCapital == "on"):
+        withoutcap = ""
+        for char in fetchedtext:
+            withoutcap = withoutcap+char.upper()
+        params = {
+            "textCapital": withoutcap
+        }
+    else:
+        withoutcap = fetchedtext
 
     return render(request, "removespuncs.html", params)
