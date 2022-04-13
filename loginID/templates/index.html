@@ -4,5 +4,10 @@
  
  this is the dynamically created home page....
 
+ <form action="dyn" method="post">{% csrf_token %}
+    <input type="text" name="num1">
+    <input type="text" name="num2">
+    <button type="submit">add</button>
+ </form>
 
  {% endblock content %}
