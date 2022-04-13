@@ -79,12 +79,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'priyamDB',
-        'user': 'postgres',
-        'password':'12345',
+        'USER': 'postgres',
+        'PASSWORD':'12345',
         'HOST': 'localhost'
     }
 }
 
+# print DATABASES
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
