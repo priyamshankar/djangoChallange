@@ -2,6 +2,16 @@
 
 {% block content %}
 
+<form action="register" method="POST">
+    {% csrf_token %}
+    <input type="text" name='name' placeholder='enter your name'>
+    <input type="text" name='userName' placeholder="enter the user id">
+    <input type="email" name='email' placeholder='enter the email address'>
+    <input type="text" name='password'>
+    <input type='checkbox'> manager</input>
+    <button type='submit'>submit</button>
 
+
+</form>
 
 {% endblock content %}
